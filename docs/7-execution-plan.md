@@ -94,8 +94,8 @@
   ```
 
 **완료 조건:**
-- [ ] `psql -d todolistapp -U todolist_user` 접속 성공
-- [ ] `\dt` 명령으로 테이블 목록 조회 가능 (비어 있어도 OK)
+- [x] `psql -d todolistapp -U todolist_user` 접속 성공
+- [x] `\dt` 명령으로 테이블 목록 조회 가능 (비어 있어도 OK)
 
 ---
 
@@ -110,10 +110,10 @@
   ```
 
 **완료 조건:**
-- [ ] `\dt` 실행 시 `users`, `categories`, `todos` 테이블 3개 존재
-- [ ] `\di` 실행 시 인덱스 4개 존재 (`uq_categories_user_name`, `idx_todos_user_id`, `idx_todos_category_id`, `idx_todos_status_filter`)
-- [ ] `\df set_updated_at` 실행 시 트리거 함수 존재
-- [ ] `\d todos` 실행 시 컬럼 구조 정상 확인
+- [x] `\dt` 실행 시 `users`, `categories`, `todos` 테이블 3개 존재
+- [x] `\di` 실행 시 인덱스 4개 존재 (`uq_categories_user_name`, `idx_todos_user_id`, `idx_todos_category_id`, `idx_todos_status_filter`)
+- [x] `\df set_updated_at` 실행 시 트리거 함수 존재
+- [x] `\d todos` 실행 시 컬럼 구조 정상 확인
 
 ---
 
@@ -138,10 +138,10 @@
   ```
 
 **완료 조건:**
-- [ ] `backend/.env` 파일 생성됨
-- [ ] DB 접속 정보 5개 (HOST, PORT, NAME, USER, PASSWORD) 모두 입력됨
-- [ ] `JWT_SECRET` 최소 64자 이상 랜덤 문자열
-- [ ] `git status`에서 `.env` 파일 미추적 상태 확인 (gitignore 적용)
+- [x] `backend/.env` 파일 생성됨
+- [x] DB 접속 정보 5개 (HOST, PORT, NAME, USER, PASSWORD) 모두 입력됨
+- [x] `JWT_SECRET` 최소 64자 이상 랜덤 문자열
+- [x] `git status`에서 `.env` 파일 미추적 상태 확인 (gitignore 적용)
 
 ---
 
@@ -155,10 +155,10 @@
 - `backend/src/config/env.js` 구현 (필수 환경변수 검증 — 누락 시 서버 시작 차단)
 
 **완료 조건:**
-- [ ] `backend/package.json`에 `pg` 의존성 포함
-- [ ] `backend/src/db/dbClient.js` 파일 존재 및 Pool export
-- [ ] `backend/src/config/env.js` 파일 존재 및 필수값 검증 로직 포함
-- [ ] 환경변수 누락 시 `process.exit(1)` 또는 에러 throw
+- [x] `backend/package.json`에 `pg` 의존성 포함
+- [x] `backend/src/db/dbClient.js` 파일 존재 및 Pool export
+- [x] `backend/src/config/env.js` 파일 존재 및 필수값 검증 로직 포함
+- [x] 환경변수 누락 시 `process.exit(1)` 또는 에러 throw
 
 ---
 
@@ -171,9 +171,9 @@
 - `pool.query('SELECT NOW()')` 쿼리 실행 성공 확인
 
 **완료 조건:**
-- [ ] 서버 시작 시 DB 연결 성공 로그 출력
-- [ ] `SELECT NOW()` 쿼리 결과 정상 반환 (응답 시간 < 100ms)
-- [ ] 잘못된 환경변수로 시작 시 에러 메시지 출력 후 종료
+- [x] 서버 시작 시 DB 연결 성공 로그 출력
+- [x] `SELECT NOW()` 쿼리 결과 정상 반환 (응답 시간 < 100ms)
+- [x] 잘못된 환경변수로 시작 시 에러 메시지 출력 후 종료
 
 ---
 
@@ -191,10 +191,10 @@
 - **공통 원칙:** DB 컬럼명(snake_case) → camelCase 변환하여 반환
 
 **완료 조건:**
-- [ ] 3개 Repository 파일 모두 생성됨
-- [ ] 각 함수에 JSDoc 주석 (`@param`, `@returns`) 포함
-- [ ] 반환 객체 키가 camelCase 확인 (예: `created_at` → `createdAt`)
-- [ ] 비즈니스 로직 없음 (SQL 실행만)
+- [x] 3개 Repository 파일 모두 생성됨
+- [x] 각 함수에 JSDoc 주석 (`@param`, `@returns`) 포함
+- [x] 반환 객체 키가 camelCase 확인 (예: `created_at` → `createdAt`)
+- [x] 비즈니스 로직 없음 (SQL 실행만)
 
 ---
 
@@ -210,11 +210,11 @@
 - `set_updated_at` 트리거 확인 (Todo 수정 시 `updated_at` 자동 갱신)
 
 **완료 조건:**
-- [ ] User 삭제 시 소속 Todo, Category 모두 삭제됨 (CASCADE)
-- [ ] Category 삭제 후 소속 Todo 행 존재, `category_id = NULL` 확인 (SET NULL)
-- [ ] 이메일 중복 INSERT 시 DB 에러 발생
-- [ ] 동일 사용자 카테고리명 중복 INSERT 시 DB 에러 발생
-- [ ] Todo 수정 후 `updated_at` 이 수정 시각으로 자동 갱신됨
+- [x] User 삭제 시 소속 Todo, Category 모두 삭제됨 (CASCADE)
+- [x] Category 삭제 후 소속 Todo 행 존재, `category_id = NULL` 확인 (SET NULL)
+- [x] 이메일 중복 INSERT 시 DB 에러 발생
+- [x] 동일 사용자 카테고리명 중복 INSERT 시 DB 에러 발생
+- [x] Todo 수정 후 `updated_at` 이 수정 시각으로 자동 갱신됨
 
 ---
 
