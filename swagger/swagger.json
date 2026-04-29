@@ -76,6 +76,11 @@
             "nullable": true,
             "description": "Target completion date"
           },
+          "userId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Owner user identifier"
+          },
           "isCompleted": {
             "type": "boolean",
             "description": "Whether the todo is finished"
@@ -118,6 +123,11 @@
             "type": "string",
             "maxLength": 50
           },
+          "userId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Owner user identifier"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -126,6 +136,7 @@
         "required": [
           "id",
           "name",
+          "userId",
           "createdAt"
         ]
       },
@@ -142,7 +153,8 @@
                   "UNAUTHORIZED",
                   "FORBIDDEN",
                   "NOT_FOUND",
-                  "CONFLICT"
+                  "CONFLICT",
+                  "INTERNAL_ERROR"
                 ],
                 "description": "Error code for programmatic handling"
               },
@@ -535,49 +547,6 @@
       }
     },
     "/todos/{id}": {
-      "get": {
-        "tags": [
-          "Todos"
-        ],
-        "summary": "Get Todo Details",
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Todo details",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Todo"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "403": {
-            "$ref": "#/components/responses/Forbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      },
       "patch": {
         "tags": [
           "Todos"

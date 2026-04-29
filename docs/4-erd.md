@@ -64,24 +64,24 @@ erDiagram
 ## 3. 제약조건 및 인덱스
 
 ```sql
--- User
-CREATE UNIQUE INDEX idx_user_email
-    ON users (email);
+-- User: 이메일 중복 방지 (UNIQUE 제약이 묵시적으로 인덱스 생성)
+-- 인덱스명: uq_users_email
+CONSTRAINT uq_users_email UNIQUE (email);
 
 -- Category: 동일 사용자 내 카테고리 이름 중복 방지 (DR-05)
-CREATE UNIQUE INDEX idx_category_user_name
+CREATE UNIQUE INDEX uq_categories_user_name
     ON categories (user_id, name);
 
 -- Todo: 사용자별 조회 성능
-CREATE INDEX idx_todo_user_id
+CREATE INDEX idx_todos_user_id
     ON todos (user_id);
 
 -- Todo: 카테고리별 필터링 성능
-CREATE INDEX idx_todo_category_id
+CREATE INDEX idx_todos_category_id
     ON todos (category_id);
 
 -- Todo: 상태 필터링 성능 (is_completed + due_date 복합)
-CREATE INDEX idx_todo_status_filter
+CREATE INDEX idx_todos_status_filter
     ON todos (user_id, is_completed, due_date);
 ```
 

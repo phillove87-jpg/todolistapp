@@ -235,11 +235,11 @@
 - `backend/.gitignore` 작성 (`.env`, `node_modules/` 포함)
 
 **완료 조건:**
-- [ ] `npm install` 성공
-- [ ] `backend/package.json`에 모든 필수 의존성 명시됨
-- [ ] 8개 디렉토리 구조 생성 완료
-- [ ] `.env.example` 에 11개 환경변수 키 나열됨
-- [ ] ESLint 설정 파일 존재 및 `no-unused-vars`, `eqeqeq`, `no-var` 규칙 포함
+- [x] `npm install` 성공
+- [x] `backend/package.json`에 모든 필수 의존성 명시됨
+- [x] 8개 디렉토리 구조 생성 완료
+- [x] `.env.example` 에 11개 환경변수 키 나열됨
+- [x] ESLint 설정 파일 존재 및 `no-unused-vars`, `eqeqeq`, `no-var` 규칙 포함
 
 ---
 
@@ -256,11 +256,11 @@
 - `backend/src/utils/logger.js` — pino 로거 인스턴스 래퍼
 
 **완료 조건:**
-- [ ] `authMiddleware`가 `Authorization: Bearer <token>` 파싱 후 검증
-- [ ] 인증 실패 시 `401 Unauthorized` + JSON 에러 응답 반환
-- [ ] `errorHandler`가 모든 에러를 `{"error": {"code": "...", "message": "..."}}` 형식으로 변환
-- [ ] CORS가 `CORS_ORIGIN` 환경변수 값만 허용 (와일드카드 금지)
-- [ ] 로그에 개인정보(이메일, 비밀번호) 미포함
+- [x] `authMiddleware`가 `Authorization: Bearer <token>` 파싱 후 검증
+- [x] 인증 실패 시 `401 Unauthorized` + JSON 에러 응답 반환
+- [x] `errorHandler`가 모든 에러를 `{"error": {"code": "...", "message": "..."}}` 형식으로 변환
+- [x] CORS가 `CORS_ORIGIN` 환경변수 값만 허용 (와일드카드 금지)
+- [x] 로그에 개인정보(이메일, 비밀번호) 미포함
 
 ---
 
@@ -278,12 +278,12 @@
   - `comparePassword(input, hash)` — boolean 반환
 
 **완료 조건:**
-- [ ] `signAccessToken` 이 HS-512 서명된 토큰 반환
-- [ ] 토큰 페이로드에 `userId`, `iat`, `exp` 포함
-- [ ] Access Token / Refresh Token 만료 시간이 다름
-- [ ] `hashPassword` bcrypt cost ≥ 12 사용
-- [ ] `comparePassword` boolean 반환
-- [ ] `JWT_SECRET` 32바이트 미만 시 에러 throw
+- [x] `signAccessToken` 이 HS-512 서명된 토큰 반환
+- [x] 토큰 페이로드에 `userId`, `iat`, `exp` 포함
+- [x] Access Token / Refresh Token 만료 시간이 다름
+- [x] `hashPassword` bcrypt cost ≥ 12 사용
+- [x] `comparePassword` boolean 반환
+- [x] `JWT_SECRET` 32바이트 미만 시 에러 throw
 
 ---
 
@@ -308,12 +308,12 @@
 | `POST /api/auth/refresh` | `{refreshToken}` | `{accessToken}` (200) |
 
 **완료 조건:**
-- [ ] 중복 이메일 가입 시 `409 Conflict` 반환
-- [ ] 비밀번호 7자 이하 가입 시 `400 Bad Request` 반환
-- [ ] 로그인 성공 시 Access Token(1h) + Refresh Token(7d) 발급
-- [ ] 잘못된 비밀번호 로그인 시 `401 Unauthorized` 반환
-- [ ] 응답에 비밀번호 해시 미포함
-- [ ] Refresh Token 만료 시 `401` 반환 (재로그인 필요)
+- [x] 중복 이메일 가입 시 `409 Conflict` 반환
+- [x] 비밀번호 7자 이하 가입 시 `400 Bad Request` 반환
+- [x] 로그인 성공 시 Access Token(1h) + Refresh Token(7d) 발급
+- [x] 잘못된 비밀번호 로그인 시 `401 Unauthorized` 반환
+- [x] 응답에 비밀번호 해시 미포함
+- [x] Refresh Token 만료 시 `401` 반환 (재로그인 필요)
 
 ---
 
@@ -343,15 +343,15 @@ is_completed = false, due_date ≤ NOW()  → "overdue"
 ```
 
 **완료 조건:**
-- [ ] 제목 없이 생성 시 `400` 반환
-- [ ] 제목 101자 초과 생성 시 `400` 반환
-- [ ] `?status=overdue` 필터가 기간 초과 항목만 반환
-- [ ] `?status=in_progress` 필터가 null 마감일 항목 포함
-- [ ] `?categoryId=<id>` 필터 정상 작동
-- [ ] 완료 취소 시 마감일 기준 상태 재계산 (DR-08)
-- [ ] 타인 할일 수정/삭제 시 `403 Forbidden` 반환 (DR-02)
-- [ ] 타인 할일이 목록 조회 결과에 미포함 (DR-02)
-- [ ] Hard Delete 적용 (복구 불가)
+- [x] 제목 없이 생성 시 `400` 반환
+- [x] 제목 101자 초과 생성 시 `400` 반환
+- [x] `?status=overdue` 필터가 기간 초과 항목만 반환
+- [x] `?status=in_progress` 필터가 null 마감일 항목 포함
+- [x] `?categoryId=<id>` 필터 정상 작동
+- [x] 완료 취소 시 마감일 기준 상태 재계산 (DR-08)
+- [x] 타인 할일 수정/삭제 시 `403 Forbidden` 반환 (DR-02)
+- [x] 타인 할일이 목록 조회 결과에 미포함 (DR-02)
+- [x] Hard Delete 적용 (복구 불가)
 
 ---
 
@@ -373,11 +373,11 @@ is_completed = false, due_date ≤ NOW()  → "overdue"
 | `DELETE /api/categories/:id` | 삭제 (F-22) | 필요 |
 
 **완료 조건:**
-- [ ] 동일 사용자 내 이름 중복 생성 시 `409 Conflict` 반환 (DR-05)
-- [ ] 다른 사용자와 동일 이름은 허용
-- [ ] 이름 51자 초과 시 `400 Bad Request` 반환
-- [ ] 카테고리 삭제 시 소속 할일 `category_id = null` 처리, 행 보존 (DR-06)
-- [ ] 타인 카테고리 수정/삭제 시 `403 Forbidden` 반환 (DR-02)
+- [x] 동일 사용자 내 이름 중복 생성 시 `409 Conflict` 반환 (DR-05)
+- [x] 다른 사용자와 동일 이름은 허용
+- [x] 이름 51자 초과 시 `400 Bad Request` 반환
+- [x] 카테고리 삭제 시 소속 할일 `category_id = null` 처리, 행 보존 (DR-06)
+- [x] 타인 카테고리 수정/삭제 시 `403 Forbidden` 반환 (DR-02)
 
 ---
 
@@ -393,16 +393,16 @@ is_completed = false, due_date ≤ NOW()  → "overdue"
 - `backend/src/utils/passwordHelper.test.js` — 해시, 비교
 
 **완료 조건:**
-- [ ] 할일 상태 계산 4가지 케이스 모두 테스트 통과
+- [x] 할일 상태 계산 4가지 케이스 모두 테스트 통과
   - `is_completed=true` → `completed`
   - `is_completed=false, due_date=null` → `in_progress`
   - `is_completed=false, due_date > now` → `in_progress`
   - `is_completed=false, due_date ≤ now` → `overdue`
-- [ ] 소유권 검증 테스트 (본인 ✓, 타인 ✗)
-- [ ] 유효성 검증 경계값 테스트 (0자, 1자, 100자, 101자)
-- [ ] 중복 검증 테스트 (같은 사용자 ✗, 다른 사용자 ✓)
-- [ ] 토큰 검증 테스트 (유효, 만료, 위조)
-- [ ] 모든 테스트 통과 (`npm test`)
+- [x] 소유권 검증 테스트 (본인 ✓, 타인 ✗)
+- [x] 유효성 검증 경계값 테스트 (0자, 1자, 100자, 101자)
+- [x] 중복 검증 테스트 (같은 사용자 ✗, 다른 사용자 ✓)
+- [x] 토큰 검증 테스트 (유효, 만료, 위조)
+- [x] 모든 테스트 통과 (`npm test`)
 
 ---
 
